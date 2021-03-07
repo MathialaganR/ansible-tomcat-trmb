@@ -1,5 +1,5 @@
 ---
-    - name: "Install rpm packages"
+    - name: Install rpm packages
       become: true
       yum:
         name:
@@ -8,7 +8,6 @@
           - unzip
           - python3-devel
           - java-1.8.0
-          - https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
         state: installed
     - name: add tomcatuser
       user:
