@@ -6,7 +6,6 @@
           - gcc
           - wget
           - unzip
-          - rh-python36
           - python3-devel
           - java-1.8.0
           - https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
