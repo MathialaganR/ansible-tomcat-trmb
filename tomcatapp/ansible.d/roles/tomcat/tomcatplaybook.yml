@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  vars_files:
+    - "{{ conf_file }}"
+  become: yes
+  tasks:
+    - name: Install application
+      include_role:
+        name: tomcat
+        tasks_from: tomcat.yml
