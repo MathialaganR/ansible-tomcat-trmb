@@ -21,7 +21,7 @@
     - name: get_installer
       get_url:
         url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.76/bin/apache-tomcat-7.0.76.tar.gz
-        dest: /tmp /
+        dest: /tmp/
       become: yes
       become_user: root
     - name: copy
@@ -54,7 +54,7 @@
         owner: tomcat
         group: tomcat
         state: link
-    - name: Create airflow services
+    - name: Create tomcat services
       template:
         src: "tomcat.service"
         dest: "/etc/systemd/system/tomcat.service"
