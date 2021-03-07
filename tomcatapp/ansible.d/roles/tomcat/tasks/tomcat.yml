@@ -17,29 +17,29 @@
         shell: /sbin/nologin
     - name: get_installer
       get_url:
-        url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.76/bin/apache-tomcat-7.0.76.tar.gz
+        url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.9/bin/apache-tomcat-8.5.9.tar.gz
         dest: /tmp/
       become: yes
       become_user: root
     - name: copy
-      command: cp -p /tmp/apache-tomcat-7.0.76.tar.gz /usr/local/
+      command: cp -p /tmp/apache-tomcat-8.5.9.tar.gz /usr/local/
     - name: install
       unarchive:
-        src: /usr/local/apache-tomcat-7.0.76.tar.gz
+        src: /usr/local/apache-tomcat-8.5.9.tar.gz
         dest: /usr/local
         remote_src: yes
       become: yes
       become_user: root
     - name: Change file ownership, group and permissions
       file:
-        path: /usr/local/apache-tomcat-7.0.76
+        path: /usr/local/apache-tomcat-8.5.9
         owner: tomcat
         group: tomcat
         recurse: yes
         state: directory
     - name: make tomcat symbolic
       file:
-        src: /usr/local/apache-tomcat-7.0.76
+        src: /usr/local/apache-tomcat-8.5.9
         dest: /usr/local/tomcat7
         owner: tomcat
         group: tomcat
