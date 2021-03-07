@@ -19,11 +19,11 @@
     - name: add tomcatuser
       user:
         name: tomcat
-        shell:/sbin/nologin
+        shell: /sbin/nologin
     - name: get_installer
       get_url:
         url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.76/bin/apache-tomcat-7.0.76.tar.gz
-        dest:/tmp /
+        dest: /tmp /
       become: yes
       become_user: root
     - name: copy
@@ -31,7 +31,7 @@
     - name: install
       unarchive:
         src: /usr/local/apache-tomcat-7.0.76.tar.gz
-        dest:/usr/local
+        dest: /usr/local
         remote_src: yes
       become: yes
       become_user: root
@@ -52,7 +52,7 @@
     - name: make tomcat symbolic
       file:
         src: /usr/local/apache-tomcat-7.0.76
-        dest:/usr/local/tomcat7
+        dest: /usr/local/tomcat7
         owner: tomcat
         group: tomcat
         state: link
