@@ -1,7 +1,5 @@
 ---
 - hosts: localhost
-  vars_files:
-    - "{{ conf_file }}"
   become: yes
   tasks:
     - name: Install application

@@ -8,12 +8,9 @@
           - unzip
           - rh-python36
           - python3-devel
+          - java-1.8.0
           - https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
         state: installed
-    - name: correct java version selected
-      alternatives:
-        name: java
-        path: /usr/java/jdk1.8.0_202-amd64/jre/bin/java
     - name: add tomcatuser
       user:
         name: tomcat
@@ -25,7 +22,7 @@
       become: yes
       become_user: root
     - name: copy
-      command: cp -p /tmp/apache-tomcat-7.0.76.tar.gz/usr/local /
+      command: cp -p /tmp/apache-tomcat-7.0.76.tar.gz /usr/local/
     - name: install
       unarchive:
         src: /usr/local/apache-tomcat-7.0.76.tar.gz
@@ -33,13 +30,6 @@
         remote_src: yes
       become: yes
       become_user: root
-    - name: Firewall
-      firewalld:
-        port: 8080/tcp
-        permanent: yes
-        immediate: yes
-        state: enabled
-      become: yes
     - name: Change file ownership, group and permissions
       file:
         path: /usr/local/apache-tomcat-7.0.76
