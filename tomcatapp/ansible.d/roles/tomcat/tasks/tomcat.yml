@@ -42,12 +42,6 @@
         owner: tomcat
         group: tomcat
         state: link
-    - name: sample app
-        get_url:
-          url: https://tomcat.apache.org/tomcat-8.0-doc/appdev/sample/sample.war
-          dest: /usr/local/tomcat8/webapps
-          become: yes
-          become_user: root
     - name: Create tomcat services
       template:
         src: "tomcat.service"
